@@ -5,14 +5,7 @@ const addCheckBoxListeners = () => {
   checkBoxes.forEach((checkBox) => {
     if (Number(checkBox.classList[1]) >= ToDoController.todos.length) {
       checkBox.addEventListener('click', (event) => {
-        if (event.target.checked) {
-          event.target.nextElementSibling.style.textDecoration = 'line-through';
-          event.target.nextElementSibling.style.color = 'gray';
-        } else {
-          event.target.nextElementSibling.style.textDecoration = 'none';
-          event.target.nextElementSibling.style.color = 'black';
-        }
-        ToDoController.changeStatus(Number(event.target.classList[1]));
+      changeStatus(event)
       });
     }
   });
@@ -22,17 +15,21 @@ const refreshCheckBoxListeners = () => {
   const checkBoxes = document.querySelectorAll('.item-check');
   checkBoxes.forEach((checkBox) => {
     checkBox.addEventListener('click', (event) => {
-      if (event.target.checked) {
-        event.target.nextElementSibling.style.textDecoration = 'line-through';
-        event.target.nextElementSibling.style.color = 'gray';
-      } else {
-        event.target.nextElementSibling.style.textDecoration = 'none';
-        event.target.nextElementSibling.style.color = 'black';
-      }
-      ToDoController.changeStatus(Number(event.target.classList[1]));
+      changeStatus(event)
     });
   });
 };
+
+const changeStatus = (event) => {
+  if (event.target.checked) {
+    event.target.nextElementSibling.style.textDecoration = 'line-through';
+    event.target.nextElementSibling.style.color = 'gray';
+  } else {
+    event.target.nextElementSibling.style.textDecoration = 'none';
+    event.target.nextElementSibling.style.color = 'black';
+  }
+  ToDoController.changeStatus(Number(event.target.classList[1]));
+}
 //TODO: 
 
 export { addCheckBoxListeners, refreshCheckBoxListeners };
