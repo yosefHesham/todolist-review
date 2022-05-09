@@ -39,6 +39,7 @@ const renderItems = () => {
   `;
     todolist.appendChild(itemTemp.firstChild);
   }
+ 
 };
 
 const removeToDo = (index) => {
@@ -77,6 +78,7 @@ const configureDeleteListeners = () => {
 };
 
 const configureEditItems = () => {
+  
   const edits = document.querySelectorAll('.edit-field');
   edits.forEach((editField) => editField.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
