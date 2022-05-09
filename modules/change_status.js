@@ -30,6 +30,5 @@ const changeStatus = (event) => {
   }
   ToDoController.changeStatus(Number(event.target.classList[1]));
 }
-//TODO: 
 
 export { addCheckBoxListeners, refreshCheckBoxListeners };
